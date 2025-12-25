@@ -363,45 +363,67 @@
 
 
 
-
-/* TRUST SECTION */
+/* =========================
+   TRUST SECTION
+========================= */
 .trust-section {
   background-color: #ffffff;
+  padding: 80px 20px;
 }
 
-/* Animated Border Box */
+/* =========================
+   TRUST BOX (CARD)
+========================= */
 .trust-box {
   position: relative;
+  max-width: 900px;
+  margin: auto;
   padding: 50px 30px;
   border-radius: 20px;
   background: #f8f9fa;
   overflow: hidden;
-  max-width: 900px;
-  margin: auto;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Animated Gradient Border */
+/* =========================
+   ANIMATED GRADIENT BORDER
+========================= */
 .trust-box::before {
   content: "";
   position: absolute;
   inset: 0;
   padding: 2px;
-  background: linear-gradient(270deg, #0d6efd, #6610f2, #0d6efd);
   border-radius: 20px;
+  background: linear-gradient(
+    270deg,
+    #0d6efd,
+    #6610f2,
+    #0d6efd
+  );
   background-size: 600% 600%;
   animation: borderGlow 6s ease infinite;
+  pointer-events: none;
+
+  /* Mask to create border-only effect */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
 }
 
-/* Icon */
+/* =========================
+   ICON
+========================= */
 .trust-icon i {
   font-size: 3rem;
   color: #0d6efd;
+  margin-bottom: 20px;
 }
 
-/* Text */
+/* =========================
+   TEXT STYLES
+========================= */
 .trust-title {
   font-size: 2rem;
   font-weight: 700;
@@ -415,14 +437,24 @@
   line-height: 1.7;
 }
 
-/* Animation */
+/* =========================
+   BORDER ANIMATION
+========================= */
 @keyframes borderGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 576px) {
   .trust-title {
     font-size: 1.6rem;
@@ -431,8 +463,11 @@
   .trust-box {
     padding: 40px 20px;
   }
-}
 
+  .trust-icon i {
+    font-size: 2.5rem;
+  }
+}
 
 
 /* FOOTER */
@@ -632,5 +667,6 @@
     .quote-text {
       font-size: 18px;
     }
+
 
   }
